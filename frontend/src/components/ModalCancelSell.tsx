@@ -1,12 +1,12 @@
 import { Modal, Button } from 'react-bootstrap';
-import { ModalDataProps } from '../interfaces/modalProductsProps';
+import { ModalSellProps } from '../interfaces/modalProductsProps';
 
 
-export const ModalDeleteProduct: React.FC<ModalDataProps> = ({show, handleShow, data}) => {
+export const ModalCancelSell: React.FC<ModalSellProps> = ({show, handleShow, data}) => {
   
-    const deleteProduct = async ()=>{
+    const cancelSell = async ()=>{
         try {
-            await fetch(`http://localhost:3000/products/${data.id}`, {
+            await fetch(`http://localhost:3000/sells/${data.id}`, {
                 method: 'DELETE'
             })
 
@@ -22,15 +22,15 @@ export const ModalDeleteProduct: React.FC<ModalDataProps> = ({show, handleShow, 
         
         <Modal.Body>
             <div className='delete-msg'>
-                <h1>Estas seguro que quieres eliminar {data.nombre}?</h1>  
+                <h1>Estas seguro que quieres cancelar la venta {data.id}?</h1>  
             </div>
         </Modal.Body>
         <Modal.Footer className='delete-footer'>
           <Button variant="danger" onClick={handleShow}>
-            Cancelar
+            Volver atras
           </Button>
-          <Button variant="warning" onClick={()=> deleteProduct()}>
-            Eliminar
+          <Button variant="warning" onClick={()=> cancelSell()}>
+            Cancelar venta
           </Button>
         </Modal.Footer>
       </Modal>

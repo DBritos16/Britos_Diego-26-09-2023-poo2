@@ -1,10 +1,15 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
 
 body {
-    margin: 100px;
+    margin: 60px;
 }
 
 .header {
+    display: flex;
+    justify-content: center;
+}
+
+.header-inv {
     display: flex;
     justify-content: space-between;
     align-items: center;
