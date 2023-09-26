@@ -25,8 +25,8 @@ productRouter.get('/:id', async (req, res)=>{
     return res.json(product);
 });
 
-productRouter.patch('/:id', async (req, res)=>{
-    const product = await Product.updateStockProduct(req.params.id, req.body.stock);
+productRouter.put('/:id', async (req, res)=>{
+    const product = await Product.updateProduct(req.params.id, req.body);
 
     return res.json(product);
 });

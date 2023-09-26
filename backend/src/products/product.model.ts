@@ -1,6 +1,7 @@
 import { Product } from './product.entity'
 import { sequelize } from '../database/database'
 import { DataTypes, Model } from 'sequelize'
+import { SellModel } from '../sells/sell.model'
 
 class ProductModel extends Model<Product> implements Product {
     public declare id: number
@@ -36,6 +37,15 @@ ProductModel.init({
 }, {
     sequelize,
     tableName: 'products'
+});
+
+ProductModel.hasMany(SellModel,{
+    foreignKey: 'productId',
+    onDelete: 'CASCADE'
+});
+
+SellModel.belongsTo(ProductModel,{
+    foreignKey: 'productId'
 });
 
 export { ProductModel }

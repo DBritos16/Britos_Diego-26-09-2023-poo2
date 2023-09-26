@@ -17,8 +17,8 @@ export class ProductService {
         return this.model.create(product);
     }
 
-    updateStockProduct(id: string, stock: number): Promise<number[]>{
-         return this.model.update({ stock }, { where: { id } });
+    updateProduct(id: string, product: Product): Promise<number[]>{
+         return this.model.update(product, { where: { id } });
     }
 
     deleteProduct(id: string): Promise<number> {
