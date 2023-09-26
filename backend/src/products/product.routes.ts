@@ -25,14 +25,14 @@ productRouter.get('/:id', async (req, res)=>{
     return res.json(product);
 });
 
-productRouter.patch('/', (req, res)=>{
-    const product = Product.updateStockProduct(req.body.id, req.body.stock);
+productRouter.patch('/:id', async (req, res)=>{
+    const product = await Product.updateStockProduct(req.params.id, req.body.stock);
 
     return res.json(product);
 });
 
-productRouter.delete('/', (req, res)=>{
-    const product = Product.deleteProduct(req.body.id);
+productRouter.delete('/:id', async (req, res)=>{
+    const product = await Product.deleteProduct(req.params.id);
 
     return res.json(product);
 });

@@ -5,6 +5,7 @@ import { DataTypes, Model } from 'sequelize'
 class ProductModel extends Model<Product> implements Product {
     public declare id: number
     public declare nombre: string
+    public declare marca: string
     public declare precio: number
     public declare stock: number
 }
@@ -17,6 +18,10 @@ ProductModel.init({
         allowNull: false
     },
     nombre: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    marca: {
         type: DataTypes.STRING,
         allowNull: false
     },
