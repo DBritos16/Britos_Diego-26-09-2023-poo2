@@ -51,7 +51,7 @@ export const Ventas: React.FC<LoadProp> = ({load}) => {
                             <td>{p.cantidad}</td>
                             <td>{p.tipo}</td>
                             <td>{p.fecha}</td>
-                            <td>{p.total}</td>
+                            <td>${p.total}</td>
                             <td><i className='bi bi-x-circle' style={{color: 'red'}} onClick={(()=>{handleShow(), setData(p)})}></i></td>
                         </tr>
                     ))}

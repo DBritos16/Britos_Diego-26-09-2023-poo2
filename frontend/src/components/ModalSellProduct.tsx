@@ -45,7 +45,9 @@ export const ModalSellProduct: React.FC<ModalDataProps> = ({show, handleShow, da
       }, [show])
       
       useEffect(() => {
-        setValues({...values, total: values.tipo==='Unidad'?values.cantidad*data.precio:(values.cantidad*10)*data.precio})
+        if(values.tipo==='Caja' && values.cantidad >= 3){
+            setValues({...values, total: ((values.cantidad*10)*data.precio)*0.8 })
+        } else setValues({...values, total: values.tipo==='Unidad'?values.cantidad*data.precio:(values.cantidad*10)*data.precio})
       }, [values.cantidad, values.tipo])
 
     return (
@@ -69,7 +71,7 @@ export const ModalSellProduct: React.FC<ModalDataProps> = ({show, handleShow, da
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="stock">
-                        <Form.Label>Cantidad</Form.Label>
+                        <Form.Label>Cantidad | 20% desc a partir de 3 cajas</Form.Label>
                         <Form.Control type="number" placeholder="Ingrese la cantidad" name='cantidad' onChange={handleChange} />
                     </Form.Group>
 

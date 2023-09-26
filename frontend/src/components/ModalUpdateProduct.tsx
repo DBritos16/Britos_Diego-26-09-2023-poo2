@@ -68,7 +68,7 @@ export const ModalUpdateProduct: React.FC<ModalDataProps> = ({show, handleShow, 
                     Cancelar
                 </Button>
                 <Button variant="primary" onClick={()=>updateProduct()}>
-                    Crear
+                    Actualizar
                 </Button>
             </Modal.Footer>
         </Modal>
